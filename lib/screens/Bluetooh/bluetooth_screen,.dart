@@ -61,6 +61,8 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
       setState(() {
         _bluetoothState = state;
       });
+    }).catchError((onError) {
+      show(_scaffoldKey, 'لايوجد ميزة بلوتوث في هذا الجهاز');
     });
 
     _deviceState = 0; // neutral
@@ -99,18 +101,22 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
   // Request Bluetooth permission from the user
   Future<void> enableBluetooth() async {
     // Retrieving the current Bluetooth state
-    _bluetoothState = await FlutterBluetoothSerial.instance.state;
-
-    // If the bluetooth is off, then turn it on first
-    // and then retrieve the devices that are paired.
-    if (_bluetoothState == BluetoothState.STATE_OFF) {
-      await FlutterBluetoothSerial.instance.requestEnable();
-      await getPairedDevices();
-      return true;
+    if (BluetoothState.ERROR != null) {
+      print('لايوجد ميزة بلوتوث في هذا الجهاز');
     } else {
-      await getPairedDevices();
+      _bluetoothState = await FlutterBluetoothSerial.instance.state;
+
+      // If the bluetooth is off, then turn it on first
+      // and then retrieve the devices that are paired.
+      if (_bluetoothState == BluetoothState.STATE_OFF) {
+        await FlutterBluetoothSerial.instance.requestEnable();
+        await getPairedDevices();
+        return true;
+      } else {
+        await getPairedDevices();
+      }
+      return false;
     }
-    return false;
   }
 
   // For retrieving and storing the paired devices
@@ -205,14 +211,20 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
                               value: _bluetoothState.isEnabled,
                               onChanged: (bool value) {
                                 future() async {
-                                  if (value) {
-                                    await FlutterBluetoothSerial.instance
-                                        .requestEnable();
-                                  } else {
-                                    await FlutterBluetoothSerial.instance
-                                        .requestDisable();
+                                  if (_bluetoothState !=
+                                      BluetoothState.UNKNOWN) {
+                                    if (value) {
+                                      await FlutterBluetoothSerial.instance
+                                          .requestEnable();
+                                    } else {
+                                      await FlutterBluetoothSerial.instance
+                                          .requestDisable();
+                                    }
+                                  } else if (_bluetoothState ==
+                                      BluetoothState.UNKNOWN) {
+                                    show(_scaffoldKey,
+                                        'لايوجد ميزة بلوتوث في هذا الجهاز');
                                   }
-
                                   await getPairedDevices();
                                   _isButtonUnavailable = false;
 

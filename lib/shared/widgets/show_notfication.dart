@@ -12,6 +12,8 @@ Future show(
     new SnackBar(
       content: new Text(
         message,
+        textAlign: TextAlign.center,
+        style: TextStyle(fontFamily: 'Alexandria'),
       ),
       duration: duration,
     ),

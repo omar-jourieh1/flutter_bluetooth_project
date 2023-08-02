@@ -78,6 +78,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
       body: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Animated container for vertical sizing
               AnimatedContainer(

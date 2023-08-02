@@ -107,9 +107,14 @@ class _DataReadingPageState extends State<DataReadingPage>
                   },
                   child: GestureDetector(
                     onTap: () {
-                      _startAnimation();
-                      print('$bluetoothName -------------');
-                      print('$bluetoothAddress -------------');
+                      if (isConnected == false) {
+                        show(_scaffoldKey,
+                            'لايوجد جهاز متصل - اذهب الى صفحة البلوتوث');
+                      } else {
+                        _startAnimation();
+                        print('$bluetoothName -------------');
+                        print('$bluetoothAddress -------------');
+                      }
                     },
                     child: Container(
                       width: 200,
