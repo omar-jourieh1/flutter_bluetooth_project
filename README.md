@@ -59,16 +59,20 @@ Now, add these two lines of code :
 
 # Screenshots
 <p align="center">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/bluetooth_turn_on.png">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/connecting.png">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/device_connected.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/bluetooth_turn_on.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/connecting.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_connected.png">
 </p>
 
 <p align="center">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/device_on.png">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/device_off.png">
-  <img width="250" src="https://github.com/sbis04/flutter_bluetooth/raw/master/screenshots/device_disconnected.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_on.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_off.png">
+  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_disconnected.png">
 </p>
+
+# Clarification
+
+The code of the previous programmer was reused, formatted, and modern designs were used for a graduation project for a bachelor's degree at Damascus University for the year 2023
 
 # License
 
