@@ -59,15 +59,21 @@ Now, add these two lines of code :
 
 # Screenshots
 <p align="center">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/bluetooth_turn_on.png">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/connecting.png">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_connected.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/1.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/2.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/3.png">
+    <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/4.png">
+      <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/5.png">
+        <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/light_mode/6.png">
 </p>
 
 <p align="center">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_on.png">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_off.png">
-  <img width="250" src="https://github.com/omar-jourieh1/flutter_bluetooth_project/raw/master/screenshots/device_disconnected.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/1.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/2.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/3.png">
+    <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/4.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/5.png">
+  <img width="250" src="https://raw.githubusercontent.com/omar-jourieh1/flutter_bluetooth_project/main/screenshots/dark_mode/6.png">
 </p>
 
 # Clarification
