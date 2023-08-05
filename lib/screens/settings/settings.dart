@@ -6,6 +6,8 @@ import 'package:flutter_bluetooth/shared/theme/theme_provider.dart';
 import 'package:flutter_bluetooth/utils/storage/cacheHelper.dart';
 import 'package:provider/provider.dart';
 
+import '../../main.dart';
+
 class Settings extends StatefulWidget {
   const Settings({Key key}) : super(key: key);
 
@@ -113,6 +115,28 @@ class _SettingsState extends State<Settings> {
                   },
                   value: isDark,
                 )
+              ],
+            ),
+            SizedBox(
+              height: _w / 15,
+            ),
+            Row(
+              children: [
+                Text(
+                  'ربط البلوتوث',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: "Alexandria",
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Spacer(),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    },
+                    child: Icon(Icons.bluetooth))
               ],
             )
           ],

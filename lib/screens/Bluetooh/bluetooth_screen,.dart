@@ -89,11 +89,11 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
   @override
   void dispose() {
     // Avoid memory leak and disconnect
-    if (isConnected) {
-      isDisconnecting = true;
-      connection.dispose();
-      connection = null;
-    }
+    // if (isConnected) {
+    //   isDisconnecting = true;
+    //   // connection.dispose();
+    //   connection = null;
+    // }
 
     super.dispose();
   }
@@ -293,55 +293,55 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
                                   ],
                                 ),
                               ),
-                              // Padding(
-                              //   padding: const EdgeInsets.all(16.0),
-                              //   child: Card(
-                              //     shape: RoundedRectangleBorder(
-                              //       side: new BorderSide(
-                              //         color: _deviceState == 0
-                              //             ? colors['neutralBorderColor']
-                              //             : _deviceState == 1
-                              //                 ? colors['onBorderColor']
-                              //                 : colors['offBorderColor'],
-                              //         width: 3,
-                              //       ),
-                              //       borderRadius: BorderRadius.circular(4.0),
-                              //     ),
-                              //     elevation: _deviceState == 0 ? 4 : 0,
-                              //     child: Padding(
-                              //       padding: const EdgeInsets.all(8.0),
-                              //       child: Row(
-                              //         children: <Widget>[
-                              //           Expanded(
-                              //             child: Text(
-                              //               "DEVICE 1",
-                              //               style: TextStyle(
-                              //                 fontSize: 20,
-                              //                 color: _deviceState == 0
-                              //                     ? colors['neutralTextColor']
-                              //                     : _deviceState == 1
-                              //                         ? colors['onTextColor']
-                              //                         : colors['offTextColor'],
-                              //               ),
-                              //             ),
-                              //           ),
-                              //           FlatButton(
-                              //             onPressed: _connected
-                              //                 ? _sendOnMessageToBluetooth
-                              //                 : null,
-                              //             child: Text("ON"),
-                              //           ),
-                              //           FlatButton(
-                              //             onPressed: _connected
-                              //                 ? _sendOffMessageToBluetooth
-                              //                 : null,
-                              //             child: Text("OFF"),
-                              //           ),
-                              //         ],
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    side: new BorderSide(
+                                      color: _deviceState == 0
+                                          ? colors['neutralBorderColor']
+                                          : _deviceState == 1
+                                              ? colors['onBorderColor']
+                                              : colors['offBorderColor'],
+                                      width: 3,
+                                    ),
+                                    borderRadius: BorderRadius.circular(4.0),
+                                  ),
+                                  elevation: _deviceState == 0 ? 4 : 0,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Text(
+                                            "DEVICE 1",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: _deviceState == 0
+                                                  ? colors['neutralTextColor']
+                                                  : _deviceState == 1
+                                                      ? colors['onTextColor']
+                                                      : colors['offTextColor'],
+                                            ),
+                                          ),
+                                        ),
+                                        FlatButton(
+                                          onPressed: _connected
+                                              ? _sendOnMessageToBluetooth
+                                              : null,
+                                          child: Text("ON"),
+                                        ),
+                                        FlatButton(
+                                          onPressed: _connected
+                                              ? _sendOffMessageToBluetooth
+                                              : null,
+                                          child: Text("OFF"),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                           Container(
@@ -444,6 +444,8 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
                             MaterialPageRoute(
                                 builder: (context) => HomePage(
                                     device: _device, connection: connection)));
+
+                        // Navigator.pop(context);
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(99)),
@@ -511,10 +513,12 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
           connection = _connection;
           setState(() {
             _connected = true;
-
+            CacheData.setData(key: 'bluetooth_connection', value: connection);
+            CacheData.setData(key: 'bluetooth_isConnected', value: isConnected);
             CacheData.setData(key: 'bluetooth_name', value: _device.name);
 
             CacheData.setData(key: 'bluetooth_address', value: _device.address);
+            print(_device.address);
           });
 
           connection.input.listen(_onDataReceived).onDone(() {
@@ -564,6 +568,7 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
           backspacesCounter--;
         } else {
           buffer[--bufferIndex] = data[i];
+          print(data.toString());
         }
       }
     }
@@ -589,7 +594,7 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
   // Method to send message,
   // for turning the Bluetooth device on
   void _sendOnMessageToBluetooth() async {
-    connection.output.add(utf8.encode("1" + "\r\n"));
+    connection.output.add(utf8.encode("a" + "\r\n"));
     await connection.output.allSent;
     show(_scaffoldKey, 'تم تشغيل الجهاز');
     setState(() {
@@ -600,7 +605,7 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
   // Method to send message,
   // for turning the Bluetooth device off
   void _sendOffMessageToBluetooth() async {
-    connection.output.add(utf8.encode("0" + "\r\n"));
+    connection.output.add(utf8.encode("a" + "\r\n"));
     await connection.output.allSent;
     show(_scaffoldKey, 'الجهاز متوقف');
     setState(() {

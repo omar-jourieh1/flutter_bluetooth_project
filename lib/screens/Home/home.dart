@@ -11,6 +11,8 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../Bluetooh/led.dart';
+import '../../main.dart';
 import '../Readings/data_reading_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -111,18 +113,17 @@ class _HomePageState extends State<HomePage>
                     'نبضات القلب',
                     context,
                     DataReadingPage(
-                      gradientColor: Color(0xfff37736),
-                      cardName: 'نبضات القلب',
-                      orderNumber: '0',
-                      connection: widget.connection,
-                    ),
+                        gradientColor: Color(0xfff37736),
+                        cardName: 'نبضات القلب',
+                        orderNumber: '1',
+                        connection: widget.connection),
                     Color(0xffFF6D6D),
                     Icons.all_inclusive,
                     'أكسجة الدم',
                     DataReadingPage(
                         gradientColor: Color(0xffFF6D6D),
                         cardName: 'أكسجة الدم',
-                        orderNumber: '1',
+                        orderNumber: '2',
                         connection: widget.connection),
                     true),
                 homePageCardsGroup(
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage>
                     DataReadingPage(
                         gradientColor: Colors.lightGreen,
                         cardName: 'الحرارة',
-                        orderNumber: '2',
+                        orderNumber: '3',
                         connection: widget.connection),
                     Color(0xffffa700),
                     // Icons.article,
@@ -145,7 +146,7 @@ class _HomePageState extends State<HomePage>
                     DataReadingPage(
                         gradientColor: Color(0xffffa700),
                         cardName: 'الرطوبة',
-                        orderNumber: '3',
+                        orderNumber: '4',
                         connection: widget.connection),
                     true),
                 homePageCardsGroup(
@@ -158,7 +159,7 @@ class _HomePageState extends State<HomePage>
                     DataReadingPage(
                         gradientColor: Color(0xff63ace5),
                         cardName: 'معدل الروائح',
-                        orderNumber: '4',
+                        orderNumber: '5',
                         connection: widget.connection),
                     Color(0xfff37736),
                     Icons.gps_fixed,
@@ -174,46 +175,46 @@ class _HomePageState extends State<HomePage>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      HapticFeedback.lightImpact();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return BluetoothScreen();
-                          },
-                        ),
-                      );
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(99)),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
-                        child: Container(
-                          height: _w / 8.5,
-                          width: _w / 8.5,
-                          decoration: BoxDecoration(
-                            color: isDark
-                                ? Colors.white.withOpacity(.05)
-                                : Colors.black.withOpacity(.05),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.bluetooth,
-                              size: _w / 17,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  // InkWell(
+                  //   highlightColor: Colors.transparent,
+                  //   splashColor: Colors.transparent,
+                  //   onTap: () {
+                  //     HapticFeedback.lightImpact();
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) {
+                  //           return BluetoothScreen();
+                  //         },
+                  //       ),
+                  //     );
+                  //   },
+                  //   child: ClipRRect(
+                  //     borderRadius: BorderRadius.all(Radius.circular(99)),
+                  //     child: BackdropFilter(
+                  //       filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
+                  //       child: Container(
+                  //         height: _w / 8.5,
+                  //         width: _w / 8.5,
+                  //         decoration: BoxDecoration(
+                  //           color: isDark
+                  //               ? Colors.white.withOpacity(.05)
+                  //               : Colors.black.withOpacity(.05),
+                  //           shape: BoxShape.circle,
+                  //         ),
+                  //         child: Center(
+                  //           child: Icon(
+                  //             Icons.bluetooth,
+                  //             size: _w / 17,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   width: 10,
+                  // ),
                   InkWell(
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,

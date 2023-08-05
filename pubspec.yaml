@@ -20,6 +20,8 @@ dependencies:
   flutter_bluetooth_serial: ^0.2.2
   fluttertoast:
   provider:
+  flutter_blue: ^0.6.2
+  oscilloscope: ^0.0.3
   syncfusion_flutter_charts:
   font_awesome_flutter:
   shared_preferences:
