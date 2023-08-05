@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter_bluetooth/screens/Bluetooh/bluetooth_screen,.dart';
 import 'package:flutter_bluetooth/screens/settings/settings.dart';
 import 'package:flutter_bluetooth/shared/theme/theme_provider.dart';
+import 'package:flutter_bluetooth/shared/widgets/home_page_card.dart';
 import 'package:flutter_bluetooth/shared/widgets/home_page_cards_group.dart';
 import 'package:flutter_bluetooth/utils/storage/cacheHelper.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
@@ -166,6 +167,27 @@ class _HomePageState extends State<HomePage>
                     'GPS',
                     HomePage(),
                     false),
+                Padding(
+                  padding: EdgeInsets.only(right: _w / 17, bottom: _w / 17),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      homePageCard(
+                          _animation,
+                          _animation2,
+                          Color(0xff0000),
+                          FontAwesomeIcons.walking,
+                          'حساس حركة',
+                          context,
+                          DataReadingPage(
+                              gradientColor: Color(0xff0000),
+                              cardName: 'حساس حركة',
+                              orderNumber: '6',
+                              connection: widget.connection),
+                          true),
+                    ],
+                  ),
+                ),
               ],
             ),
 

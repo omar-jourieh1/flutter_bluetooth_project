@@ -278,7 +278,7 @@ class _DataReadingPageState extends State<DataReadingPage>
                                         : alarm >= 900
                                             ? 'يرجى مغادرة المكان'
                                             : 'نسبة الغاز طبيعية'))
-                                    : 'test'
+                                    : 'حساس الحركة'
                 : 'انقر الزر لبدء قراءة البيانات ${widget.cardName} ',
             style: TextStyle(fontSize: 18, fontFamily: 'Alexandria'),
           ),
@@ -365,7 +365,7 @@ class _DataReadingPageState extends State<DataReadingPage>
         await connection.output.allSent;
         if (messages.length < 1) {
           setState(() {
-            messages.add(_Message(0, '0'));
+            messages.add(_Message(0, '000000000000000000000000000000'));
           });
         }
         Future.delayed(Duration(milliseconds: 333)).then((_) {
